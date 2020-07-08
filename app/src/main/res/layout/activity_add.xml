@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+  <TextView
+      android:id="@+id/textView"
+      android:layout_marginTop="30dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColor="#000"
+      android:textSize="20dp"
+      android:text="Block Number"
+      android:layout_centerHorizontal="true"/>
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_below="@+id/textView"
+    android:layout_width="match_parent"
+    android:id="@+id/text_names"
+    android:textColorHint="#3700B3"
+    android:layout_marginTop="40dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp"
+    android:layout_height="wrap_content">
+
+
+      <EditText
+          android:id="@+id/name"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="textPersonName"
+          android:textColor="#000"
+          android:layout_marginBottom="40dp"
+          android:hint="Name"/>
+
+</com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:id="@+id/text_numbers"
+        android:layout_below="@+id/text_names"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:textColorHint="#3700B3"
+        android:layout_marginRight="30dp">
+
+    <EditText
+           android:id="@+id/number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:hint="Number"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/selecting_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="40dp"
+        android:textColor="#000"
+        android:drawableEnd="@drawable/ic_baseline_account_box_24"
+        android:text="Select no from contact list"
+        android:layout_below="@+id/text_numbers"
+        android:drawableRight="@drawable/ic_baseline_person_24" />
+        <Button
+            android:layout_below="@+id/selecting_contact"
+            android:id="@+id/blocked_number"
+            android:layout_width="290dp"
+            android:layout_marginTop="40dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/btn_shape"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:text="Block the number"
+            />
+
+  </RelativeLayout>

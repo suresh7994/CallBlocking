@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"/>
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="50dp"
+        app:fab_addButtonColorNormal="#3700B3"
+        android:layout_alignParentRight="true"
+        app:fab_labelStyle="@style/custom_fab">
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="#3700B3"
+            app:fab_size="mini"
+            app:fab_colorPressed="#ffffff"
+            app:fab_icon="@drawable/ic_baseline_person_24"
+            />
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_addConstraint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="#3700B3"
+            app:fab_size="mini"
+            app:fab_colorPressed="#ffffff"
+            app:fab_icon="@drawable/ic_baseline_person_24"
+
+            />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+
+</RelativeLayout>

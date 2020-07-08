@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/callblock_img"
+        android:layout_width="80dp"
+        android:layout_height="75dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/callblocker" />
+
+    <TextView
+        android:layout_below="@+id/callblock_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="Call Blocker"
+        android:textAlignment="center"
+        android:textColor="#3700B3"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_above="@+id/privacy_policy"
+        android:textAlignment="center"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="290dp"
+        android:background="@drawable/btn_shape"
+        android:layout_centerInParent="true"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:id="@+id/continue_button"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/privacy_policy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center_horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Click Continue means that you have read and agreed to the privacy policy and service agreement"
+        android:textAlignment="center"
+        android:textColor="#B6908E"
+        android:textSize="13sp"
+        android:layout_alignParentBottom="true"
+        android:textStyle="bold" />
+
+</RelativeLayout>

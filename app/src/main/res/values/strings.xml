@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Call Blocker</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="title_home">Call History</string>
+    <string name="title_dashboard">BlockList</string>
+    </resources>
