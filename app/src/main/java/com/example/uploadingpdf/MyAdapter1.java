@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyAdapter1 extends BaseAdapter {
 
@@ -35,33 +36,40 @@ public class MyAdapter1 extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, final View convertView, final ViewGroup parent) {
         LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view=inflater.from(context).inflate(R.layout.model1,null);
+        final View view=inflater.from(parent.getContext()).inflate(R.layout.model1,parent,false);
         final TextView text_name=view.findViewById(R.id.text_name);
         TextView text_number=view.findViewById(R.id.text_number);
 
-        ListData listData=arrayList.get(position);
+        final ListData listData=arrayList.get(position);
         text_name.setText(listData.getName());
         text_number.setText(listData.getNumber());
-        view.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                database=new Database(context);
-                boolean result=database.onDeleteData(text_name.getText().toString());
-                if (result){
-//                    MyAdapter1.this.notify();
-                    Toast.makeText(context,"Deleted",Toast.LENGTH_LONG).show();
-                }
-                else {
-                    Toast.makeText(context,"not Deleted",Toast.LENGTH_LONG).show();
+        notifyDataSetChanged();
+//        view.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View v) {
+//                    String name=arrayList.get(position).getName();
+//                database=new Database(context);
+//
+//                boolean result=database.onDeleteData(name);
+//                if (result){
+//                    Toast.makeText(context,"Deleted",Toast.LENGTH_LONG).show();
+//                    MyAdapter1.this.notifyDataSetChanged();
+//
+//
+//                }
+//                else {
+//                    Toast.makeText(context,"not Deleted",Toast.LENGTH_LONG).show();
+//
+//                }
 
-                }
-
-                 return true;
-            }
-        });
+//                 return true;
+//            }
+//        });
         return view;
     }
-
+        public List<ListData> getList(){
+        return arrayList;
+        }
 }

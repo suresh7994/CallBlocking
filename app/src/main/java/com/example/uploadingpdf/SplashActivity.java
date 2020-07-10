@@ -55,7 +55,7 @@ public class SplashActivity extends AppCompatActivity {
         List<String> missingPermissions = new ArrayList<>();
 
         for (String permission : requiredPermissions) {
-            if (ContextCompat.checkSelfPermission(this, permission)
+            if (ActivityCompat.checkSelfPermission(this, permission)
                     != PackageManager.PERMISSION_GRANTED) {
                 missingPermissions.add(permission);
             }

@@ -18,13 +18,13 @@ EditText editText;
 Button button;
 ArrayAdapter arrayAdapter;
 Database database;
-String item;   String s[]={"Start_With","End_With","contains"};
+String item;   String s[]={"Start with","End with","Contains"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_constraint);
-        getSupportActionBar().setTitle("Constarint");
+        getSupportActionBar().setTitle("Constraint");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         database=new Database(this);
         spinner=findViewById(R.id.spinner_constarit);
@@ -50,7 +50,6 @@ String item;   String s[]={"Start_With","End_With","contains"};
             @Override
             public void onClick(View v) {
                 onloadData();
-                viewData();
             }
         });
     }
@@ -58,15 +57,23 @@ String item;   String s[]={"Start_With","End_With","contains"};
         startActivity(new Intent(AddConstraint.this,MainActivity.class));
     }
     private void onloadData() {
-     boolean result= database.insertData(item,editText.getText().toString());
-     if (result){
-         Toast.makeText(this,"Upload Successfully",Toast.LENGTH_LONG).show();
-     }
-     else{
-         Toast.makeText(this,"error in uploading",Toast.LENGTH_LONG).show();
+            if (editText.getText().toString().trim().equals("")){
+                editText.setError("Contains cant be Empty");
+                editText.requestFocus();
+            }else {
+                boolean result= database.insertData(item,editText.getText().toString());
+                if (result){
+                    Toast.makeText(this,"Upload Successfully",Toast.LENGTH_LONG).show();
+                            viewData();
+                    }
+                else{
+                    Toast.makeText(this,"error in uploading",Toast.LENGTH_LONG).show();
 
 
-     }
+                }
+
+            }
+
 
     }
 

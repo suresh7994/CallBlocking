@@ -49,13 +49,13 @@ public class CallReceiver extends BroadcastReceiver {
         else {
             for (int i = 0; i < listData.size(); i++) {
 
-                if (incomingNumber.startsWith(listData.get(i).getNumber()) && listData.get(i).getName().equals("Start_With")){
+                if (incomingNumber.startsWith(listData.get(i).getNumber()) && listData.get(i).getName().equals("Start with")){
                     breakCall(context);
                 }
-               else if (incomingNumber.endsWith(listData.get(i).getNumber()) && listData.get(i).getName().equals("End_With")){
+               else if (incomingNumber.endsWith(listData.get(i).getNumber()) && listData.get(i).getName().equals("End with")){
                     breakCall(context);
                 }
-               else  if (incomingNumber.contains(listData.get(i).getNumber()) && listData.get(i).getName().equals("contains")){
+               else  if (incomingNumber.contains(listData.get(i).getNumber()) && listData.get(i).getName().equals("Contains")){
                     breakCall(context);
                 }
                 else if(incomingNumber.equalsIgnoreCase(listData.get(i).getNumber())) {

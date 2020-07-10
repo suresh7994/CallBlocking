@@ -1,8 +1,10 @@
 package com.example.uploadingpdf;
 
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -32,7 +35,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
     }
 
     @Override
-    public void onBindViewHolder( final MyHolder holder, int position) {
+    public void onBindViewHolder(final MyHolder holder, int position) {
         final MyModel myModel = arrayList.get(position);
         holder.name.setText(myModel.getName());
         holder.person.setText(myModel.getPerson());
@@ -45,8 +48,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_CALL);
 
-                intent.setData(Uri.parse("tel:" +myModel.getNumber()));
+                intent.setData(Uri.parse("tel:" + myModel.getNumber()));
 
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
                 context.startActivity(intent);
             }
         });

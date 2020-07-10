@@ -18,6 +18,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.uploadingpdf.ui.dashboard.DashboardFragment;
+
 import java.util.ArrayList;
 
 public class Add extends AppCompatActivity {
@@ -60,14 +62,14 @@ TextView text_add;
             @Override
             public void onClick(View v) {
                 onSendData();
-                viewData();
+
 
             }
         });
         }
 
     private void viewData() {
-        startActivity(new Intent(Add.this,MainActivity.class));
+        startActivity(new Intent(Add.this, DashboardFragment.class));
     }@Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -85,12 +87,22 @@ TextView text_add;
     }
 
     private void onSendData() {
-       boolean result= database.insertData(edit_name.getText().toString(),edit_number.getText().toString());
-       if (result){
-           Toast.makeText(Add.this,"data inserted",Toast.LENGTH_LONG).show();
-       }
-       else
-           Toast.makeText(Add.this,"data not inserted",Toast.LENGTH_LONG).show();
+        if (edit_name.getText().toString().trim().equals("")){
+            edit_name.setError("Name cant be Empty!");
+            edit_name.requestFocus();
+        }else if(edit_number.getText().toString().trim().equals("")){
+            edit_number.setError("Number cant be Empty");
+            edit_number.requestFocus();
+        }else{
+            boolean result= database.insertData(edit_name.getText().toString(),edit_number.getText().toString());
+            if (result){
+                Toast.makeText(Add.this,"data inserted",Toast.LENGTH_LONG).show();
+                viewData();
+            }
+            else
+                Toast.makeText(Add.this,"data not inserted",Toast.LENGTH_LONG).show();
+
+        }
 
     }
 
